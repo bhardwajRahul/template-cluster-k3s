@@ -301,6 +301,7 @@ setup_github_webhook() {
 
         mkdir -p "${PROJECT_DIR}/cluster/flux/add-ons"
         cp -rf  "${PROJECT_DIR}/tmpl/cluster/flux/webhooks" "${PROJECT_DIR}/cluster/flux/add-ons"
+        cp -rf  "${PROJECT_DIR}/tmpl/cluster/flux/kustomization.yaml" "${PROJECT_DIR}/cluster/flux/add-ons"
 
         envsubst < "${PROJECT_DIR}/tmpl/cluster/flux/webhooks/github/secret.sops.yaml" \
             > "${PROJECT_DIR}/cluster/flux/add-ons/webhooks/github/secret.sops.yaml"
