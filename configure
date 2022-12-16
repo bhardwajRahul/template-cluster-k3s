@@ -299,6 +299,7 @@ setup_github_webhook() {
         export BOOTSTRAP_FLUX_GITHUB_WEBHOOK_SECRET="${WEBHOOK_SECRET}"
         _log "INFO" "Using GitHub Token '${WEBHOOK_SECRET}' for Flux"
 
+        mkdir -p "${PROJECT_DIR}/cluster/flux/add-ons"
         cp -rf  "${PROJECT_DIR}/tmpl/cluster/flux/webhooks" "${PROJECT_DIR}/cluster/flux/add-ons"
 
         envsubst < "${PROJECT_DIR}/tmpl/cluster/flux/webhooks/github/secret.sops.yaml" \
